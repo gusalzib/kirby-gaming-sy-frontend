@@ -1,7 +1,7 @@
 {
     "title": "Kirby Gaming Hall",
     "welcome": "Welcome to Kirby Gaming Hall",
-    "tagline": "Enjoy games, drinks, and desserts with your friends on campus",
+    "tagline": "Enjoy games, drinks, and desserts with your friends in Qalamall",
     "activities": "Available Activities",
     "menu": "Drinks and Desserts Menu",
     "ps": "🎮 PlayStation",
@@ -13,17 +13,14 @@
     "cheesecake": "🍰 Cheesecake - SAR 10",
     "boba": "🧋 Boba Drink - SAR 12",
     "home": "Home",
-    "about": "About", 
+    "about": "About",
     "gallery": "Photo gallery",
-
     "aboutTitle": "About Kirby Gaming",
-    "aboutText": "Kirby Gaming is a vibrant gaming café located at the heart of campus. We offer an exciting space for students to relax, compete, and socialize — with a great selection of games, desserts, and drinks.",
-    "featureGames": "PlayStation, Pool, Foosball & more",
-    "featureDesserts": "Delicious cheesecakes and sweets",
-    "featureDrinks": "Coffee, Boba, and signature drinks",
+    "aboutText": "Kirby Gaming is a vibrant gaming café located at the heart of Qalamall. We offer an exciting space for students to relax, compete, and socialize — with a great selection of games, desserts, and drinks.",
+    "featureGames": "PlayStation, Pool, Snooker & more",
+    "featureDesserts": "Delicious Waffles and Crêpes",
+    "featureDrinks": "Coffee and signature drinks",
     "featureCommunity": "Perfect spot to hang out with friends",
-
-
     "form": {
         "name": "Full Name",
         "title": "Title (Mr./Ms./Dr.)",

@@ -16,11 +16,19 @@
   <script setup>
   import AppHeader from '../components/AppHeader.vue'
   const menuImages = [
-    new URL('../assets/menu/01.jpg', import.meta.url).href,
-    new URL('../assets/menu/02.jpg', import.meta.url).href,
-    new URL('../assets/menu/03.jpg', import.meta.url).href,
-    new URL('../assets/menu/04.jpg', import.meta.url).href,
-    new URL('../assets/menu/05.jpg', import.meta.url).href
+    new URL('../assets/menu/drinks-1.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/drinks-2.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/drinks-3.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/drinks-4.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/drinks-5.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/drinks-6.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/desserts-1.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/desserts-2.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/desserts-3.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/desserts-4.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/snacks-1.pdf.jpg', import.meta.url).href,
+    new URL('../assets/menu/entertainment-1.pdf.jpg', import.meta.url).href,
+
   ]
   </script>
   
