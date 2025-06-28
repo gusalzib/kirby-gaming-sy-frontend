@@ -1,0 +1,61 @@
+{
+    "title": "Kirby Gaming Hall",
+    "welcome": "Welcome to Kirby Gaming Hall",
+    "tagline": "Enjoy games, drinks, and desserts with your friends on campus",
+    "activities": "Available Activities",
+    "menu": "Drinks and Desserts Menu",
+    "ps": "🎮 PlayStation",
+    "pool": "🎱 Pool Table",
+    "snooker": "Snooker Table",
+    "other_games": "🕹️ Other Video Games",
+    "coffee": "☕ Turkish Coffee - SAR 5",
+    "mocha": "🍫 Mocha Chocolate - SAR 8",
+    "cheesecake": "🍰 Cheesecake - SAR 10",
+    "boba": "🧋 Boba Drink - SAR 12",
+    "home": "Home",
+    "about": "About", 
+    "gallery": "Photo gallery",
+
+    "aboutTitle": "About Kirby Gaming",
+    "aboutText": "Kirby Gaming is a vibrant gaming café located at the heart of campus. We offer an exciting space for students to relax, compete, and socialize — with a great selection of games, desserts, and drinks.",
+    "featureGames": "PlayStation, Pool, Foosball & more",
+    "featureDesserts": "Delicious cheesecakes and sweets",
+    "featureDrinks": "Coffee, Boba, and signature drinks",
+    "featureCommunity": "Perfect spot to hang out with friends",
+
+
+    "form": {
+        "name": "Full Name",
+        "title": "Title (Mr./Ms./Dr.)",
+        "fieldOfStudy": "Field of Study",
+        "phoneOrEmail": "Phone or Email",
+        "dateOfBirth": "Date of Birth"
+    },
+    "admin": {
+        "registerMember": "Register New Member",
+        "register": "Register",
+        "logVisit": "Log Visit for Member",
+        "selectMember": "Select Member",
+        "logVisitBtn": "Log Visit",
+        "allMembers": "All Members",
+        "noMembers": "No members yet.",
+        "visits": "Visits",
+        "searchMember": "Search Member by Name or Field",
+        "purchaseAmount": "Purchase Amount",
+        "totalSpentMonth": "Total Spent This Month",
+        "birthdaysTomorrow": "Birthdays Tomorrow",
+        "noBirthdaysTomorrow": "No members have a birthday tomorrow.",
+        "bigSpenders": "Big Spenders (Over 500,000 this month)",
+        "noBigSpenders": "No members spent more than 500,000 this month."
+    },
+    "activities": {
+        "PlayStation": "PlayStation",
+        "Foosball": "Snooker",
+        "Pool Table": "Pool Table",
+        "Board Games": "Board Games",
+        "Snacks": "Snacks",
+        "Drinks": "Drinks",
+        "Desserts": "Desserts"
+    },
+    "currencySymbol": "SYR"
+}
