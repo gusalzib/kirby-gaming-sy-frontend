@@ -19,6 +19,7 @@
         :placeholder="$t('admin.searchMember')"
         @input="filterMembers"
         />
+
         <input
             v-model.number="purchaseAmount"
             type="number"
@@ -94,6 +95,8 @@
   import { computed } from 'vue'
   import axios from 'axios'
 
+const VAPID_PUBLIC_KEY = '<YOUR_PUBLIC_VAPID_KEY>'
+
 
 // 1. Members with birthday tomorrow
 const birthdaysTomorrow = computed(() => {
@@ -164,25 +167,94 @@ const getMonthlyTotal = (member) => {
 }
   
   const loadMembers = async () => {
-    const res = await axios.get('http://localhost:5001/api/members')
+    const res = await axios.get('https://kirby-gaming-sy-backend-production.up.railway.app/api/members')
     members.value = res.data
   }
+
+
+
+  watchEffect(() => {
+  if (bigSpenders.value.length > 0 && !localStorage.getItem('bigSpendersNotified')) {
+    fetch('https://kirby-gaming-sy-backend-production.up.railway.app/api/send-notification', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: 'Big Spenders Alert!',
+        body: `${bigSpenders.value.length} members spent over 500,000 last month.`
+      })
+    })
+    localStorage.setItem('bigSpendersNotified', 'true');
+  }
+
+  if (birthdaysTomorrow.value.length > 0 && !localStorage.getItem('birthdaysNotified')) {
+    fetch('https://kirby-gaming-sy-backend-production.up.railway.app/api/send-notification', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: '🎂 Birthday Alert!',
+        body: `${birthdaysTomorrow.value.length} members have birthdays tomorrow.`
+      })
+    })
+    localStorage.setItem('birthdaysNotified', 'true');
+  }
+});
+
+
+
 
   onMounted(async () => {
     await loadMembers()
     filteredMembers.value = members.value
+
+    const todayKey = new Date().toISOString().slice(0, 10);
+
+    if (localStorage.getItem('notifiedDate') !== todayKey) {
+      localStorage.removeItem('bigSpendersNotified');
+      localStorage.removeItem('birthdaysNotified');
+      localStorage.setItem('notifiedDate', todayKey);
+    }
+
+
+  // Register service worker and subscribe for push notifications
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js')
+      const permission = await Notification.requestPermission()
+
+      if (permission === 'granted') {
+        const subscription = await registration.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
+        })
+
+        // Send subscription to backend
+        await axios.post('https://kirby-gaming-sy-backend-production.up.railway.app/api/save-subscription', subscription)
+      }
+    } catch (err) {
+      console.error('Push notification setup failed', err)
+    }
+  }
   })
 
+
+  function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4)
+  const base64 = (base64String + padding)
+    .replace(/-/g, '+')
+    .replace(/_/g, '/')
+  const rawData = window.atob(base64)
+  return Uint8Array.from([...rawData].map(char => char.charCodeAt(0)))
+}
   
   const registerMember = async () => {
-    await axios.post('http://localhost:5001/api/members', form.value)
+    await axios.post('https://kirby-gaming-sy-backend-production.up.railway.app/api/members', form.value)
     form.value = { name: '', title: '', fieldOfStudy: '', phoneOrEmail: '', dateOfBirth: '' }
     await loadMembers()
   }
   
   const logVisit = async () => {
         if (!selectedMemberId.value || visitActivities.value.length === 0) return
-        await axios.post(`http://localhost:5001/api/members/${selectedMemberId.value}/visit`, {
+        await axios.post(`https://kirby-gaming-sy-backend-production.up.railway.app/api/members/${selectedMemberId.value}/visit`, {
             activities: visitActivities.value,
             amount: purchaseAmount.value
         })
